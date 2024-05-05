@@ -5,30 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18060a4f-9fdf-46dc-9b83-35b12102abce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/DataBaseConnect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/controllers/AdminPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/entities/Photo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/entities/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/enums/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/project/printseven/adminPage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/project/printseven/hello-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/project/printseven/loginDesign.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cred.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/controllers/UserPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/controllers/YourController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/dto/UserRes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/entities/models/AnswerPShell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/service/DirectoryWatcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/service/GooglePhotoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/service/PrintExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/service/UserListCellFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/project/printseven/dashboardDesign.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/project/printseven/userPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/project/printseven/yourController.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/DataBaseConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/DataBaseConnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/controllers/AdminPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/controllers/AdminPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/entities/Photo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/entities/Photo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/project/printseven/adminPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/printseven/adminPage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,12 +43,21 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -52,9 +66,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2eleMV778P7enFx91wzEW8jsAEy" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -63,47 +77,117 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/IdeaProjects/Print-Seven/src/main/java/project/printseven",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PhotosLibraryService.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PrintJobWatcher.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PrinterQueueInfo.executor&quot;: &quot;Run&quot;,
+    &quot;Application.YourController.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Maven.Print-Seven [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Print-Seven [install].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;add-siginIn&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/user/IdeaProjects/Print-Seven/src/main/java/project/printseven&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Downloads/jna-platform-5.14.0.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\user\IdeaProjects\Print-Seven\src\main\java\project\printseven" />
       <recent name="C:\Users\user\IdeaProjects\Print-Seven\src\main\resources\project\printseven" />
+      <recent name="C:\Users\user\IdeaProjects\Print-Seven\src\main\resources" />
+      <recent name="C:\Users\user\IdeaProjects\Print-Seven" />
+      <recent name="C:\Users\user\IdeaProjects\Print-Seven\src\main\java\project\printseven" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\IdeaProjects\Print-Seven" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="project.printseven.service" />
       <recent name="project.printseven.entities" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="project.printseven.HelloApplication" />
       <module name="Print-Seven" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="project.printseven.*" />
+          <option name="PATTERN" value="project.printseven.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PhotosLibraryService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="project.printseven.service.PhotosLibraryService" />
+      <module name="Print-Seven" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.printseven.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PrintJobWatcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="project.printseven.service.PrintJobWatcher" />
+      <module name="Print-Seven" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.printseven.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PrinterQueueInfo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="project.printseven.service.PrinterQueueInfo" />
+      <module name="Print-Seven" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.printseven.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="YourController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="project.printseven.controllers.YourController" />
+      <module name="Print-Seven" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.printseven.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -114,12 +198,17 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.PrinterQueueInfo" />
+        <item itemvalue="Application.PrintJobWatcher" />
+        <item itemvalue="Application.PhotosLibraryService" />
+        <item itemvalue="Application.YourController" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
+        <option value="jdk-18.0.2-corretto-18.0.2-4caba194b151-5720f15e" />
         <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
       </set>
     </attachedChunks>
@@ -132,7 +221,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1712483549529</updated>
-      <workItem from="1712483550434" duration="5028000" />
+      <workItem from="1712483550434" duration="12188000" />
+      <workItem from="1712630486460" duration="14951000" />
+      <workItem from="1712651119422" duration="24042000" />
+      <workItem from="1713253767313" duration="440000" />
+      <workItem from="1713254946731" duration="26151000" />
+      <workItem from="1713315666221" duration="4909000" />
+      <workItem from="1713339137845" duration="594000" />
+      <workItem from="1713340634819" duration="2377000" />
+      <workItem from="1713691709591" duration="5267000" />
+      <workItem from="1713760183037" duration="630000" />
+      <workItem from="1714469716208" duration="20466000" />
+      <workItem from="1714536485854" duration="1373000" />
+      <workItem from="1714552846215" duration="5908000" />
+      <workItem from="1714639209024" duration="5121000" />
+      <workItem from="1714654584111" duration="37272000" />
     </task>
     <servers />
   </component>

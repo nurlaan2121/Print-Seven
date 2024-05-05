@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import project.printseven.entities.User;
+import project.printseven.enums.Role;
 import project.printseven.service.UserService;
 
 import java.io.IOException;
@@ -21,6 +22,7 @@ import java.util.Objects;
 
 public class HelloController {
     private UserService userService = new UserService();
+    public static User currentUser;
 
     private double x = 0;
     private double y = 0;
@@ -55,7 +57,12 @@ public class HelloController {
             loginBtn.getScene().getWindow().hide();
             //LINK YOUR DASHBOARD
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("adminPage.fxml")));
-
+            currentUser = user;
+            if (currentUser.getRole().equals(Role.ADMIN)){
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("adminPage.fxml")));
+            }else {
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("userPage.fxml")));
+            }
             Stage stage = new Stage();
             Scene scene = new Scene(root);
 
@@ -73,12 +80,13 @@ public class HelloController {
 
             stage.setScene(scene);
             stage.show();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Email or password invalid!");
+            alert.showAndWait();
         }
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error Message");
-        alert.setHeaderText(null);
-        alert.setContentText("Email or password invalid!");
-        alert.showAndWait();
     }
 
 

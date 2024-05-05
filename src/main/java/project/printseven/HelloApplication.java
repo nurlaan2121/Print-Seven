@@ -6,11 +6,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import project.printseven.service.DirectoryWatcher;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class HelloApplication extends Application {
+    public static DirectoryWatcher directoryWatcher = new DirectoryWatcher();
     private double x = 0;
     private double y = 0;
     @Override
@@ -29,6 +31,11 @@ public class HelloApplication extends Application {
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
+
+        // Создаем новый поток для запуска watcherStarter()
+        Thread watcherThread = new Thread(() -> directoryWatcher.watcherStarter());
+        watcherThread.setDaemon(true); // Устанавливаем флаг демона, чтобы поток завершился, когда закончится основной поток
+        watcherThread.start();
     }
 
     public static void main(String[] args) {
