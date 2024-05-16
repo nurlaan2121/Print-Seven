@@ -16,8 +16,10 @@ module project.printseven {
     requires commons.exec;
 
 
+
     exports project.printseven; // Экспортируем пакет для других модулей
     exports project.printseven.service;
+    opens project.printseven.dto to javafx.base;
     opens project.printseven to javafx.fxml; // Открываем пакет для других модулей, включая javafx.fxml
     opens project.printseven.controllers to javafx.fxml;
     exports project.printseven.controllers; // Открываем пакет controllers для других модулей, включая javafx.fxml

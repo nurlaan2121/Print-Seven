@@ -32,8 +32,6 @@ public class GooglePhotoService {
             com.google.api.services.drive.model.File uploadedFile = drive.files().create(fileMetaData, mediaContent).setFields("id").execute();
             String imageUrl = "https://drive.google.com/uc?export=view&id=" + uploadedFile.getId();
             System.out.println("IMAGE URL: " + imageUrl);
-            file.delete();
-
             return imageUrl;
         } catch (Exception e) {
             e.printStackTrace();

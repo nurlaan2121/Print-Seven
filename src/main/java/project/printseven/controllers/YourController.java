@@ -3,13 +3,9 @@ package project.printseven.controllers;//package project.printseven.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import project.printseven.dto.UserRes;
-import project.printseven.entities.User;
 import project.printseven.service.UserListCellFactory;
 
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
-import project.printseven.service.UserListCellFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;

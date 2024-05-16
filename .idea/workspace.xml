@@ -4,34 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18060a4f-9fdf-46dc-9b83-35b12102abce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cred.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/controllers/UserPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/controllers/YourController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/dto/UserRes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/entities/models/AnswerPShell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/service/DirectoryWatcher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/service/GooglePhotoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/service/PrintExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/service/UserListCellFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/project/printseven/dashboardDesign.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/project/printseven/userPage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/project/printseven/yourController.fxml" afterDir="false" />
+    <list default="true" id="18060a4f-9fdf-46dc-9b83-35b12102abce" name="Changes" comment="work">
+      <change afterPath="$PROJECT_DIR$/src/main/java/project/printseven/dto/PhotoRes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6375356a-4363-49a9-84d0-451554cfa8c4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6375356a-4363-49a9-84d0-451554cfa8c4.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/DataBaseConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/DataBaseConnect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/controllers/AdminPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/controllers/AdminPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/entities/Photo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/entities/Photo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/controllers/UserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/controllers/UserPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/controllers/YourController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/controllers/YourController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/dto/UserRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/dto/UserRes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/service/GooglePhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/service/GooglePhotoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/service/UserListCellFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/service/UserListCellFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/project/printseven/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/project/printseven/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/project/printseven/adminPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/project/printseven/adminPage.fxml" afterDir="false" />
     </list>
@@ -56,13 +44,25 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;nurlaan2121&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/nurlaan2121/Print-Seven.git&quot;,
+    &quot;accountId&quot;: &quot;633c2620-6a9e-4ffd-923d-4fee897756d4&quot;
+  }
+}</component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -208,8 +208,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-18.0.2-corretto-18.0.2-4caba194b151-5720f15e" />
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
       </set>
     </attachedChunks>
   </component>
@@ -235,11 +235,31 @@
       <workItem from="1714536485854" duration="1373000" />
       <workItem from="1714552846215" duration="5908000" />
       <workItem from="1714639209024" duration="5121000" />
-      <workItem from="1714654584111" duration="37272000" />
+      <workItem from="1714654584111" duration="42263000" />
+      <workItem from="1714928856942" duration="209000" />
+      <workItem from="1714929080396" duration="420000" />
+      <workItem from="1714973363480" duration="16284000" />
+      <workItem from="1715865730579" duration="1104000" />
+      <workItem from="1715867293956" duration="304000" />
+      <workItem from="1715867739331" duration="347000" />
+      <workItem from="1715868122053" duration="319000" />
     </task>
+    <task id="LOCAL-00001" summary="work">
+      <option name="closed" value="true" />
+      <created>1714902868821</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714902868821</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="work" />
+    <option name="LAST_COMMIT_MESSAGE" value="work" />
   </component>
 </project>

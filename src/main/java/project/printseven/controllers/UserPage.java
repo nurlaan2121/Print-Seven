@@ -5,14 +5,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import project.printseven.dto.UserRes;
 import project.printseven.entities.models.AnswerPShell;
 import project.printseven.service.GooglePhotoService;
 import project.printseven.service.PrintExample;
@@ -39,6 +37,8 @@ public class UserPage {
     private GooglePhotoService googlePhotoService = new GooglePhotoService();
     private double x = 0;
     private double y = 0;
+    @FXML
+    private ListView<UserRes> userListView;
     @FXML
     private Button close;
 
@@ -150,6 +150,8 @@ public class UserPage {
         }
     }
 
+    public List<Long> tasksId = new ArrayList<>();
+
     public void start() {
         ProcessBuilder processBuilder = new ProcessBuilder("powershell.exe",
                 "-ExecutionPolicy", "Bypass", "-Command",
@@ -160,50 +162,120 @@ public class UserPage {
             List<AnswerPShell> answerPShells = getStringStringMap(process);
             System.out.println("PowerShell output:");
             System.out.println("answerPShells.size() = " + answerPShells.size());
+            boolean thisMassiveContainsNull = false;
             for (AnswerPShell answerPShell : answerPShells) {
-                String namePhoto = answerPShell.getNamePhoto();
-                System.out.println("namePhoto = " + namePhoto);
-                String path = null;
-                if (namePhoto.contains(".psd")) {
-                    long second = 1L;
-                    while (path == null) {
-                        System.out.println("orig time = " + answerPShell.getSubmittedTime());
-
-                        // Получаем модифицированное время с добавлением секунд
-                        LocalDateTime modifiedTime = answerPShell.getSubmittedTime().plusSeconds(second);
-                        System.out.println("addedOneSec = " + modifiedTime);
-
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd=MM=uuuu HH=mm=ss");
-                        // Форматируем модифицированную дату и время
-                        String formattedDateTime = modifiedTime.format(formatter);
-                        System.out.println("Форматированная дата и время: " + formattedDateTime);
-                        path = findPathByName("Photo " + formattedDateTime + ".jpg");
-                        second++;
-                    }
-                } else {
-                    path = findPathByName(namePhoto + ".jpg");
+                if (answerPShell.getNamePhoto() == null) {
+                    thisMassiveContainsNull = true;
                 }
-                assert path != null;
-                File file = new File(path);
-                String urlImage = googlePhotoService.uploadImageToDrive(file);
-                String paperSize = getPaperSize(answerPShell.getId());
-                System.out.println("PAPERSIZE: " + paperSize);
-                System.out.println("PATH:  " + path);
-                userService.addPhoto(urlImage, paperSize, answerPShell);
+            }
+            if (!thisMassiveContainsNull) {
+                System.out.println("Not null!");
+            }
+            for (AnswerPShell answerPShell : answerPShells) {
+                if (!tasksId.contains(answerPShell.getId())) {
+                    String namePhoto = answerPShell.getNamePhoto();
+                    System.out.println("namePhoto = " + namePhoto);
+                    String path = null;
+                    if (namePhoto.contains(".psd")) {
+                        try {
+                            Thread.sleep(2000); // Остановить выполнение метода на 2 секунд (2000 миллисекунд)
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        long second = 1L;
+                        while (path == null) {
+                            System.out.println("orig time = " + answerPShell.getSubmittedTime());
+
+                            // Получаем модифицированное время с добавлением секунд
+                            LocalDateTime modifiedTime = answerPShell.getSubmittedTime().plusSeconds(second);
+                            System.out.println("addedOneSec = " + modifiedTime);
+
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd=MM=uuuu HH=mm=ss");
+                            // Форматируем модифицированную дату и время
+                            String formattedDateTime = modifiedTime.format(formatter);
+                            System.out.println("Форматированная дата и время: " + formattedDateTime);
+                            path = findPathByName("Photo " + formattedDateTime + ".jpg");
+                            second++;
+                        }
+                    } else {
+                        path = findPathByName(namePhoto + ".jpg");
+                    }
+                    assert path != null;
+                    File file = new File(path);
+                    String urlImage = googlePhotoService.uploadImageToDrive(file);
+                    String paperSize = getPaperSize(answerPShell.getId());
+                    System.out.println("PAPERSIZE: " + paperSize);
+                    System.out.println("PATH:  " + path);
+                    userService.addPhoto(urlImage, paperSize, answerPShell);
+                    tasksId.add(answerPShell.getId());
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    //    private static List<AnswerPShell> getStringStringMap(Process process) throws IOException {
+//        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream(), StandardCharsets.UTF_8));
+//
+//        // Читаем ответ PowerShell и помещаем его в Map
+//        String line;
+//        List<AnswerPShell> answers = new ArrayList<>();
+//        for (int i = 0; i < queuePrint("HP LaserJet MFP M28-M31"); i++) {
+//            AnswerPShell answerPShell = new AnswerPShell();
+//            while ((line = reader.readLine()) != null) {
+//                if (line.contains("SubmittedTime")) {
+//                    String[] date = line.split(" : ");
+//                    LocalDateTime parse = LocalDateTime.parse(date[1], DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss"));
+//                    answerPShell.setSubmittedTime(parse);
+//                }
+//                // Предполагаем, что ответ имеет формат "ключ: значение"
+//                String[] parts = line.split(":");
+//                if (parts.length == 2) {
+//                    String key = parts[0].trim();
+//                    String value = parts[1].trim();
+//                    if (key.equalsIgnoreCase("Id")) {
+//                        answerPShell.setId(Long.valueOf(value));
+//                    } else if (key.equalsIgnoreCase("ComputerName")) {
+//                        answerPShell.setComputerName(value);
+//                    } else if (key.equalsIgnoreCase("PrinterName")) {
+//                        answerPShell.setPrinterName(value);
+//                    } else if (key.equalsIgnoreCase("UserName")) {
+//                        answerPShell.setUser(value);
+//                    } else if (key.equalsIgnoreCase("DocumentName")) {
+//                        answerPShell.setNamePhoto(value);
+//                    } else if (key.equalsIgnoreCase("Datatype")) {
+//                        answerPShell.setDateType(value);
+//                    } else if (key.equalsIgnoreCase("Priority")) {
+//                        answerPShell.setPriority(Integer.parseInt(value));
+//                    } else if (key.equalsIgnoreCase("Position")) {
+//                        answerPShell.setPosition(Integer.parseInt(value));
+//                    } else if (key.equalsIgnoreCase("Size")) {
+//                        answerPShell.setSize(Long.valueOf(value));
+//                    } else if (key.equalsIgnoreCase("JobTime")) {
+//                        answerPShell.setSecondJobTIme(Integer.parseInt(value));
+//                    } else if (key.equalsIgnoreCase("PagesPrinted")) {
+//                        answerPShell.setPagesPrinted(Integer.parseInt(value));
+//                    } else if (key.equalsIgnoreCase("TotalPages")) {
+//                        answerPShell.setTotalPages(Integer.parseInt(value));
+//                    } else if (key.equalsIgnoreCase("JobStatus")) {
+//                        answerPShell.setJobStatus(value);
+//                    }
+//                }
+//            }
+//            answers.add(answerPShell);
+//        }
+//        return answers;
+//    }
     private static List<AnswerPShell> getStringStringMap(Process process) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream(), StandardCharsets.UTF_8));
 
-        // Читаем ответ PowerShell и помещаем его в Map
-        String line;
+        // Читаем ответ PowerShell и помещаем его в List<AnswerPShell>
         List<AnswerPShell> answers = new ArrayList<>();
-        for (int i = 0; i < queuePrint("HP LaserJet MFP M28-M31"); i++) {
+        while (true) {
             AnswerPShell answerPShell = new AnswerPShell();
+            String line;
+            // Прочитать строки для текущего объекта AnswerPShell
             while ((line = reader.readLine()) != null) {
                 if (line.contains("SubmittedTime")) {
                     String[] date = line.split(" : ");
@@ -244,10 +316,15 @@ public class UserPage {
                     }
                 }
             }
-            answers.add(answerPShell);
+            answers.add(answerPShell); // Добавить текущий объект AnswerPShell в список
+            // Прочитать строку, чтобы проверить, достигнут ли конец данных
+            if (reader.readLine() == null) {
+                break; // Если достигнут конец, выйти из цикла
+            }
         }
         return answers;
     }
+
 
     private static long queuePrint(String printerName) throws IOException {
         ProcessBuilder processBuilder = new ProcessBuilder("powershell.exe",
@@ -288,6 +365,7 @@ public class UserPage {
             @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
                 if (file.getFileName().toString().equals(name)) {
+                    System.out.println("******************************************************************");
                     foundPaths.add(file); // Добавить найденный файл в список
                 }
                 return FileVisitResult.CONTINUE; // Продолжить обход файлов

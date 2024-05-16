@@ -7,9 +7,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.util.Callback;
-import lombok.extern.slf4j.Slf4j;
 import project.printseven.dto.UserRes;
-import project.printseven.entities.User;
+
 public class UserListCellFactory implements Callback<ListView<UserRes>, ListCell<UserRes>> {
 
     @Override
@@ -19,7 +18,7 @@ public class UserListCellFactory implements Callback<ListView<UserRes>, ListCell
             protected void updateItem(UserRes userRes1, boolean empty) {
                 System.out.println("!!!!!!!!!!!!!!");
                 super.updateItem(userRes1, empty);
-                UserRes userRes = new UserRes("wrwer",12L,123L,213L,3L,21L,112L);
+                UserRes userRes = new UserRes(1L,"wrwer",12L,123L,213L,3L,21L,112L);
                 if (userRes != null) {
                     HBox hbox = new HBox();
                     Label emailLabel = new Label("Email: ");

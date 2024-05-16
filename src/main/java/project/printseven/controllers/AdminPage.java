@@ -1,30 +1,31 @@
 package project.printseven.controllers;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.*;
-import javafx.scene.control.ListCell;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Callback;
+import javafx.util.Duration;
 import project.printseven.DataBaseConnect;
 import project.printseven.HelloController;
+import project.printseven.dto.PhotoRes;
 import project.printseven.dto.UserRes;
-import project.printseven.entities.User;
 import project.printseven.enums.Role;
 import project.printseven.service.UserService;
 
@@ -192,51 +193,67 @@ public class AdminPage {
     public void switchForm(ActionEvent event) {
         if (event.getSource() == home_btn) {
             List<UserRes> users = userService.getAllUsers(HelloController.currentUser.getId());
-            userListView.setItems(FXCollections.observableArrayList(users));
-            userListView.setCellFactory(new Callback<ListView<UserRes>, ListCell<UserRes>>() {
-                @Override
-                public ListCell<UserRes> call(ListView<UserRes> param) {
-                    return new ListCell<UserRes>() {
-                        @Override
-                        protected void updateItem(UserRes userRes, boolean empty) {
-                            super.updateItem(userRes, empty);
-                            if (userRes != null) {
-                                HBox hbox = new HBox();
-                                Label emailLabel = new Label("Email: ");
-                                Label emailValueLabel = new Label(userRes.getEmail());
-                                Label successa4 = new Label("Success A4: ");
-                                Label successa4ValueLabel = new Label(String.valueOf(userRes.getSuccessA4()));
-                                Label two = new Label("Success A5: ");
-                                Label twoValueLabel = new Label(String.valueOf(userRes.getSuccessA5()));
-                                Label tree = new Label("Success A6: ");
-                                Label treeValueLabel = new Label(String.valueOf(userRes.getSuccessA6()));
-                                Label errora4 = new Label("Error A4: ");
-                                Label errora4ValueLabel = new Label(String.valueOf(userRes.getErrorA4()));
-                                Label twoError = new Label("Error A5: ");
-                                Label twoErrorValueLabel = new Label(String.valueOf(userRes.getError5()));
-                                Label treeError = new Label("Error A6: ");
-                                Label treeErrorValueLabel = new Label(String.valueOf(userRes.getErrorA6()));
 
-                                HBox.setHgrow(emailValueLabel, Priority.ALWAYS);
-                                HBox.setHgrow(successa4ValueLabel, Priority.ALWAYS);
-                                HBox.setHgrow(twoValueLabel, Priority.ALWAYS);
-                                HBox.setHgrow(treeValueLabel, Priority.ALWAYS);
-                                HBox.setHgrow(errora4ValueLabel, Priority.ALWAYS);
-                                HBox.setHgrow(twoErrorValueLabel, Priority.ALWAYS);
-                                HBox.setHgrow(treeErrorValueLabel, Priority.ALWAYS);
+            // Создание таблицы пользователей
+            TableView<UserRes> tableView = new TableView<>();
 
-                                hbox.getChildren().addAll(emailLabel, emailValueLabel, successa4, successa4ValueLabel,two,twoValueLabel,tree,treeValueLabel,errora4,errora4ValueLabel,twoError,twoErrorValueLabel,treeError,treeErrorValueLabel);
-                                hbox.setSpacing(10);
-                                hbox.setPadding(new Insets(5));
+            // Создание столбцов таблицы
+            TableColumn<UserRes, Integer> idColumn = new TableColumn<>("Id");
+            idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-                                setGraphic(hbox);
-                            } else {
-                                setGraphic(null);
-                            }
-                        }
-                    };
-                }
+            TableColumn<UserRes, String> emailColumn = new TableColumn<>("Email");
+            emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+
+            TableColumn<UserRes, Integer> successA4Column = new TableColumn<>("Success A4");
+            successA4Column.setCellValueFactory(new PropertyValueFactory<>("successA4"));
+
+            TableColumn<UserRes, Integer> successA5Column = new TableColumn<>("Success A5");
+            successA5Column.setCellValueFactory(new PropertyValueFactory<>("successA5"));
+
+            TableColumn<UserRes, Integer> successA6Column = new TableColumn<>("Success A6");
+            successA6Column.setCellValueFactory(new PropertyValueFactory<>("successA6"));
+
+            TableColumn<UserRes, Integer> errorA4Column = new TableColumn<>("Error A4");
+            errorA4Column.setCellValueFactory(new PropertyValueFactory<>("errorA4"));
+
+            TableColumn<UserRes, Integer> errorA5Column = new TableColumn<>("Error A5");
+            errorA5Column.setCellValueFactory(new PropertyValueFactory<>("errorA5"));
+
+            TableColumn<UserRes, Integer> errorA6Column = new TableColumn<>("Error A6");
+            errorA6Column.setCellValueFactory(new PropertyValueFactory<>("errorA6"));
+
+            // Добавление столбцов в TableView
+            tableView.getColumns().addAll(idColumn, emailColumn, successA4Column, successA5Column, successA6Column, errorA4Column, errorA5Column, errorA6Column);
+
+            // Добавление данных в TableView
+            ObservableList<UserRes> data = FXCollections.observableArrayList(users);
+            tableView.setItems(data);
+
+            // Установка предпочтительного размера TableView
+            tableView.setPrefSize(841, 500);
+
+            AnchorPane parentAnchorPane = (AnchorPane) home_form.getParent();
+
+            // Удаление ListView из родительского узла
+            parentAnchorPane.getChildren().remove(userListView);
+            System.out.println("1________" + parentAnchorPane);
+            // Добавление TableView в родительский узел
+            parentAnchorPane.getChildren().add(tableView);
+
+            // Установка макета ячейки для TableView
+            tableView.setRowFactory(tv -> {
+                TableRow<UserRes> row = new TableRow<>();
+                row.setOnMouseClicked(event2 -> {
+                    if (!row.isEmpty()) {
+                        UserRes rowData = row.getItem();
+                        System.out.println("rowData.getId() = " + rowData.getId());
+                        // Ваш код для обработки нажатия на пользователя
+                        showPhotosByUserId(rowData.getId());
+                    }
+                });
+                return row;
             });
+
 
             System.out.println("1-IF");
             System.out.println("DO TRUE " + home_form.isVisible());
@@ -266,8 +283,10 @@ public class AdminPage {
 
         }
     }
+
     private double x = 0;
     private double y = 0;
+
     public void logout() {
         try {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -350,7 +369,7 @@ public class AdminPage {
                 String checkData = "SELECT * FROM users WHERE email = ?";
 
                 PreparedStatement preparedStatement = connection.prepareStatement(checkData);
-                preparedStatement.setString(1,emailFld.getText());
+                preparedStatement.setString(1, emailFld.getText());
                 ResultSet result = preparedStatement.executeQuery();
 
                 if (result.next()) {
@@ -361,16 +380,16 @@ public class AdminPage {
                     alert.showAndWait();
                 } else {
                     PreparedStatement preparedStatement1 = connection.prepareStatement(insertData);
-                    preparedStatement1.setString(1,emailFld.getText());
-                    preparedStatement1.setString(2,passwordFld.getText());
+                    preparedStatement1.setString(1, emailFld.getText());
+                    preparedStatement1.setString(2, passwordFld.getText());
                     preparedStatement1.setString(3, Role.USER.name());
                     preparedStatement1.execute();
 
                     String getSaveUserId = "SELECT * FROM users WHERE email = ?";
                     PreparedStatement prepared = connection.prepareStatement(getSaveUserId);
-                    prepared.setString(1,emailFld.getText());
+                    prepared.setString(1, emailFld.getText());
                     ResultSet res = preparedStatement.executeQuery();
-                    Long id  = null;
+                    Long id = null;
                     while (res.next()) {
                         id = res.getLong("id");
                     }
@@ -389,5 +408,78 @@ public class AdminPage {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void showPhotosByUserId(Long userId) {
+        List<PhotoRes> photoRes = userService.getPhotosByUserId(userId);
+        TableView<PhotoRes> tableView = new TableView<>();
+        // Создание столбцов таблицы
+        TableColumn<PhotoRes, Integer> idColumn = new TableColumn<>("Id");
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+        TableColumn<PhotoRes, String> size = new TableColumn<>("Size");
+        size.setCellValueFactory(new PropertyValueFactory<>("Size"));
+        TableColumn<PhotoRes, String> status = new TableColumn<>("success");
+        status.setCellValueFactory(new PropertyValueFactory<>("success"));
+        TableColumn<PhotoRes, String> createdAd = new TableColumn<>("createdAd");
+        createdAd.setCellValueFactory(new PropertyValueFactory<>("createdAd"));
+        TableColumn<PhotoRes, String> url = new TableColumn<>("imageUrl");
+        url.setCellValueFactory(new PropertyValueFactory<>("imageUrl"));
+
+        // Добавление столбцов в TableView
+        tableView.getColumns().addAll(idColumn, size, status, createdAd, url);
+
+        // Добавление данных в TableView
+        ObservableList<PhotoRes> data = FXCollections.observableArrayList(photoRes);
+        tableView.setItems(data);
+
+        // Установка предпочтительного размера TableView
+        tableView.setPrefSize(841, 500);
+        // Получение родительского узла для ListView (AnchorPane)
+        AnchorPane parentAnchorPane = (AnchorPane) home_form.getParent();
+
+        System.out.println("2____" + parentAnchorPane);
+        // Удаление ListView из родительского узла
+        parentAnchorPane.getChildren().remove(userListView);
+
+        // Добавление TableView в родительский узел
+        parentAnchorPane.getChildren().add(tableView);
+
+        // Установка макета ячейки для TableView
+        tableView.setRowFactory(tv -> {
+            TableRow<PhotoRes> row = new TableRow<>();
+            row.setOnMouseClicked(event2 -> {
+                if (!row.isEmpty()) {
+                    PhotoRes rowData = row.getItem();
+                    System.out.println("Clicked on row: " + rowData.getId());
+
+                    // Получение ссылки на изображение из объекта rowData
+                    String imageUrl = rowData.getImageUrl();
+
+                    // Копирование ссылки на изображение в буфер обмена
+                    Clipboard clipboard = Clipboard.getSystemClipboard();
+                    ClipboardContent content = new ClipboardContent();
+                    content.putString(imageUrl);
+                    clipboard.setContent(content);
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Успешно!");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Ссылка скопирована в буфер!");
+
+                    // Создание таймлайна для автоматического закрытия сообщения через 2 секунды
+                    Timeline timeline = new Timeline(
+                            new KeyFrame(Duration.seconds(2), e -> alert.hide())
+                    );
+                    timeline.play();
+
+                    // Показать информационное сообщение
+                    alert.show();
+                }
+
+
+            });
+            return row;
+        });
     }
 }
