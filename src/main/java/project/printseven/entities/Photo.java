@@ -20,10 +20,12 @@ public class Photo {
     @SequenceGenerator(name = "increment",allocationSize = 1)
     private Long id;
     private ZonedDateTime createdAd;
+    private int size;
     private String imageUrl;
     private boolean success;
     @ManyToOne
     private User user;
+
     @PrePersist
     public void prePersist() {
         createdAd = ZonedDateTime.now();

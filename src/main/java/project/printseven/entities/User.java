@@ -30,7 +30,8 @@ public class User {
     @OneToMany
     private List<User> users = new ArrayList<>();
 
-    public User(String email, String password, Role role) {
+    public User(Long id, String email, String password, Role role) {
+        this.id = id;
         this.email = email;
         this.password = password;
         this.role = role;

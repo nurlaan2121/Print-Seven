@@ -6,8 +6,9 @@ import java.sql.SQLException;
 
 public class DataBaseConnect {
     public static Connection getConnection() {
+
         try {
-            return  DriverManager.getConnection("jdbc:postgresql://test.cbskka8e4hce.us-east-1.rds.amazonaws.com:5432/SampleDB", "postgres", "Nurlan21");
+            return  DriverManager.getConnection("jdbc:postgresql://ep-still-bar-a5d9uu3u.us-east-2.aws.neon.tech:5432/simple", "simple_owner", "CcByfEWNuw24");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
